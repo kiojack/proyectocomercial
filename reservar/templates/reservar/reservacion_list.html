@@ -1,0 +1,20 @@
+<html>
+        <head>
+            <title>Hotel MAZATECO </title>
+        </head>
+        <body>
+                <div>
+        <h1><a href="/">Hotel MAZATECO</a></h1>
+    </div>
+
+    {% for post in reservar %}
+        <div>
+            <p>Fecha rerevacion: {{ post.fechacreado}}</p>
+            <h1><a href="">{{ post.habitacion }}</a></h1>
+            <p>{{ post.descripcion|linebreaks }}</p>
+            <p>Fecha Ingreso:{{ post.fechainicio }}</p>
+            <p>Fecha Salida:{{ post.fechafinal }}</p>
+        </div>
+    {% endfor %}
+        </body>
+    </html>

@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<html>
+        <head>
+            <title>Hotel MAZATECO </title>
+        </head>
+        <body>
+                <div>
+        <h1><a href="/">Hotel MAZATECO</a></h1>
+    </div>
+
+    {% for post in habitacion%}
+        <div>
+            <p>Numero de Habitacion: {{ post.numero}}</p>
+            <h1>{{ post.capacidad }} personas</h1>
+            <p>{{ post.descripcion|linebreaks }}</p>
+            <p>  <img src="{% static post.imagen %}"style="width:300px; Height:200px"></p>
+        </div>
+    {% endfor %}
+        </body>
+    </html>
