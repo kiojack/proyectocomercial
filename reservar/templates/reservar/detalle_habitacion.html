@@ -1,15 +1,15 @@
 {% extends 'reservar/base.html' %}
 {% load staticfiles %}
 
-{% block content %}
 
+{% block content %}
 <div class="row">
             <div class="box">
                 <div class="col-lg-12 text-center">
                     <h2 class="brand-before">
                         <small>Bienvenido</small>
                     </h2>
-                    <h1 class="brand-name">Habitaciones Disponibles</h1>
+                    <h1 class="brand-name">Detalle Habitación</h1>
                     <hr class="tagline-divider">
                     <h2>
                         <small>BY
@@ -17,21 +17,23 @@
                         </small>
                     </h2>
     
-                   <a class="btn btn-primary" href="{% url 'reservar.views.nueva_hab' %}">Nueva Habitacion</a>
-                </div> 
+                   
+                </div>
             </div>
         </div>
-        {% for post in habitacion %}
+        
  
  <div class="row">
             <div class="box">
                 <div class="col-lg-12">
-                    <hr>
-                    <h2 class="intro-text text-center">
-   
+                   
 
+                     <hr>
+                    <h2 class="intro-text text-center">
+        
                         Habitatión #:
-                        <strong> <a href="{% url "reservar.views.detalle_habitacion" pk=post.pk %}"> {{ post.numero}}</a></strong>
+                        <strong>  {{ post.numero}}</strong>
+     
                         
                     </h2>
                     <hr>
@@ -39,18 +41,10 @@
                     <hr class="visible-xs">
                     <h1>{{ post.capacidad }} personas</h1>
                     <p>{{ post.descripcion|linebreaks }}</p>
+                    <a class="btn btn-primary" href="{% url 'reservar.views.editar_hab' pk=post.pk %}" >Editar Habitacion</a>
                     
                 </div>
             </div>
         </div>
 
-
-     {% endfor %}
-
 {% endblock content %}  
-
-              
-    
-
-
-       

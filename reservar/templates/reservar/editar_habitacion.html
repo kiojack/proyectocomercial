@@ -1,16 +1,15 @@
 {% extends 'reservar/base.html' %}
 {% load staticfiles %}
 
+
 {% block content %}
-
-
 <div class="row">
             <div class="box">
                 <div class="col-lg-12 text-center">
                     <h2 class="brand-before">
                         <small>Bienvenido</small>
                     </h2>
-                    <h1 class="brand-name">Reservaciones Realizadas</h1>
+                    <h1 class="brand-name">Habitación</h1>
                     <hr class="tagline-divider">
                     <h2>
                         <small>BY
@@ -22,29 +21,23 @@
                 </div>
             </div>
         </div>
-     {% for post in reservar %}
+        
  
  <div class="row">
+
+
             <div class="box">
                 <div class="col-lg-12">
-                    <hr>
-                    <h2 class="intro-text text-center">
-   
+                   
 
-                        Fecha Reservación:
-                       <strong> <a href="{% url "reservar.views.detalle_reservacion" pk=post.pk %}">{{post.fechacreado}}</a></strong>
-                      
-                    </h2>
-                    <h1>Habitación #: {{ post.habitacion}}</h1> 
-                    <p>{{ post.descripcion|linebreaks }}</p>
-                    <p><b>Fecha Ingreso:</b>{{ post.fechainicio }}</p> 
-                    <p><b>Fecha Salida:</b>{{ post.fechafinal }}</p>
-                    
+                     <hr>
+                                       
+                   <form enctype="multipart/form-data" method="POST" class="post-form">{% csrf_token %} {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Guardar</button>
+        </form>
                     
                 </div>
             </div>
         </div>
-
-     {% endfor %}
 
 {% endblock content %}  
